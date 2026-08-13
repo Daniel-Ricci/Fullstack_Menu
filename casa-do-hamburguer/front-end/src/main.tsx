@@ -1,14 +1,11 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+import { RouterProvider } from "react-router/dom";
+import { router } from "./router";
 import "./index.css";
-import Header from "./Components/Header.tsx";
-import Login from "./Login.tsx";
-import Register from "./Register.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    {/* <Header />
-    <Login /> */}
-    <Register />
+    <RouterProvider router={router} />
   </StrictMode>,
 );

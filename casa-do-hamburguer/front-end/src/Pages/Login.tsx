@@ -1,5 +1,7 @@
 import { useState } from "react";
-import Input from "./Components/Input";
+import { Link } from "react-router";
+import Input from "../Components/Input";
+import Button from "../Components/Button";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -17,7 +19,9 @@ const Login = () => {
       onSubmit={handleSubmit}
     >
       <div className="flex flex-col items-center justify-center gap-2">
-        <img src="./logo.png" alt="" className="mb-4" />
+        <Link to="/">
+          <img src="./logo.png" alt="" className="mb-4" />
+        </Link>
 
         <Input
           placeholder="E-mail"
@@ -29,9 +33,11 @@ const Login = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        <button className="w-full cursor-pointer rounded-md bg-[#C92A0E] py-2 text-sm font-bold text-white">
-          Login
-        </button>
+        <Button title="Login" />
+
+        <Link to="/register" className="w-full">
+          <Button title="Create account" variant="outline" />
+        </Link>
       </div>
     </form>
   );
