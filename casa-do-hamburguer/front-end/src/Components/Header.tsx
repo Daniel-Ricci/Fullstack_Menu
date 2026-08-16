@@ -7,7 +7,7 @@ const Header = () => {
         <img src="./logo.png" alt="" />
         <Link to="/login">
           <div className="flex h-[35px] w-[130px] cursor-pointer items-center justify-center rounded-md bg-[#F2DAAC]">
-            Entrar
+            Login
           </div>
         </Link>
       </div>
