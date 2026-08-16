@@ -1,9 +1,11 @@
 import express from "express";
+import cors from "cors";
 import { Connect } from "./src/db.js";
 import { prisma } from "./src/db.js";
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 Connect();
 
 app.post("/login", async (req, res) => {
