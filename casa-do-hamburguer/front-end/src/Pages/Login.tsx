@@ -41,6 +41,8 @@ const Login = () => {
         case 500:
           setError("Server error.");
           return;
+        default:
+          setError("");
       }
     } catch (error) {
       console.log(error);
