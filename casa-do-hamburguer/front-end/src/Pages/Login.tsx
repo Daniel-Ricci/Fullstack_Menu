@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router";
+import { useNavigate } from "react-router";
 import Input from "../Components/Input";
 import Button from "../Components/Button";
 
@@ -7,6 +8,8 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+
+  const navigate = useNavigate();
 
   async function handleSubmit(e: React.SubmitEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -28,6 +31,7 @@ const Login = () => {
           setError("");
           const data = await response.json();
           console.log(data);
+          navigate("/");
           return;
         case 400:
           setError("User and password are required.");
