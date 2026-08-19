@@ -1,6 +1,7 @@
 import { type Request, type Response } from "express";
 import { prisma } from "../db.js";
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
 
 export const login = async (req: Request, res: Response) => {
   try {
@@ -27,9 +28,24 @@ export const login = async (req: Request, res: Response) => {
       return;
     }
 
-    res
-      .status(200)
-      .json({ id: user.id, name: user.name, email: user.email, zip: user.zip });
+    const userData = {
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      zip: user.zip,
+    };
+
+    if (!process.env.JWT_SECRET) {
+      return;
+    }
+
+    const token = jwt.sign(userData, process.env.JWT_SECRET);
+
+    res.cookie("user", token, {
+      maxAge: 900000,
+    });
+
+    res.status(200).json(userData);
   } catch (error) {
     res.status(500).json({ message: "Server error." });
     return;
