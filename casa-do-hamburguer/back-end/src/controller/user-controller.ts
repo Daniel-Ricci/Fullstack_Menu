@@ -87,15 +87,8 @@ export const register = async (req: Request, res: Response) => {
 
 export const auth = async (req: Request, res: Response) => {
   try {
-    if (!process.env.JWT_SECRET) {
-      return;
-    }
-    const token = req.cookies.user;
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    if (!decoded) {
-      res.status(401).json({ message: "User not authorized." });
-    }
-    res.status(200).json(decoded);
+    const { user } = req;
+    res.status(200).json(user);
   } catch (error) {
     res.status(500).json({ message: "Server error." });
     return;
