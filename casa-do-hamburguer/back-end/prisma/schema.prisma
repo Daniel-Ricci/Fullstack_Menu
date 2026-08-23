@@ -13,4 +13,5 @@ model User {
   email    String @unique
   password String
   zip      String
+  admin    Boolean @default(false)
 }

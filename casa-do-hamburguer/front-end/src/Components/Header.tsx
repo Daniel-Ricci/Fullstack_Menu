@@ -62,21 +62,23 @@ const Header = () => {
 
         {user ? (
           <div className="flex items-center gap-8 text-white">
-            <div className="flex items-center gap-2 text-[#F2DAAC]">
-              <Link to="/">
-                <div className={getNavItemClass("/")}>
-                  <Box size={18} />
+            {user.admin && (
+              <div className="flex items-center gap-2 text-[#F2DAAC]">
+                <Link to="/">
+                  <div className={getNavItemClass("/")}>
+                    <Box size={18} />
+                  </div>
+                </Link>
+                <Link to="/orders">
+                  <div className={getNavItemClass("/orders")}>
+                    <LayoutDashboard size={18} />
+                  </div>
+                </Link>
+                <div className="flex h-[35px] w-[35px] cursor-pointer items-center justify-center rounded-md border-1">
+                  <Plus size={18} />
                 </div>
-              </Link>
-              <Link to="/orders">
-                <div className={getNavItemClass("/orders")}>
-                  <LayoutDashboard size={18} />
-                </div>
-              </Link>
-              <div className="flex h-[35px] w-[35px] cursor-pointer items-center justify-center rounded-md border-1">
-                <Plus size={18} />
               </div>
-            </div>
+            )}
             <div className="relative cursor-pointer">
               <ShoppingCart size={18}></ShoppingCart>
               <p className="absolute -top-4 -right-4 flex h-5 w-5 items-center justify-center rounded-full bg-[#F2DAAC] text-[#161410]">

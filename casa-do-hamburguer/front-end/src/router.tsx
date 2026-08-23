@@ -2,6 +2,7 @@ import { createBrowserRouter, Outlet } from "react-router";
 import Login from "./Pages/Login.tsx";
 import Register from "./Pages/Register.tsx";
 import Header from "./Components/Header.tsx";
+import PublicRoute from "./Components/PublicRoute.tsx";
 import { Home } from "./Pages/Home.tsx";
 import { Orders } from "./Pages/Orders.tsx";
 
@@ -30,10 +31,18 @@ export const router = createBrowserRouter([
   },
   {
     path: "/login",
-    element: <Login />,
+    element: (
+      <PublicRoute>
+        <Login />
+      </PublicRoute>
+    ),
   },
   {
     path: "/register",
-    element: <Register />,
+    element: (
+      <PublicRoute>
+        <Register />
+      </PublicRoute>
+    ),
   },
 ]);
