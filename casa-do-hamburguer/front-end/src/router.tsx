@@ -3,6 +3,7 @@ import Login from "./Pages/Login.tsx";
 import Register from "./Pages/Register.tsx";
 import Header from "./Components/Header.tsx";
 import { Home } from "./Pages/Home.tsx";
+import { Orders } from "./Pages/Orders.tsx";
 
 const Layout = () => {
   return (
@@ -20,6 +21,10 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/orders",
+        element: <Orders />,
       },
     ],
   },
