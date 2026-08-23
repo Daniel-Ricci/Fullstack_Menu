@@ -92,10 +92,24 @@ export const auth = async (req: Request, res: Response) => {
     }
     const token = req.cookies.user;
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    if(!decoded){
+    if (!decoded) {
       res.status(401).json({ message: "User not authorized." });
     }
     res.status(200).json(decoded);
+  } catch (error) {
+    res.status(500).json({ message: "Server error." });
+    return;
+  }
+};
+
+export const logout = async (req: Request, res: Response) => {
+  try {
+    const { user } = req.cookies;
+
+    if (user) {
+      res.clearCookie("user");
+      res.json({ message: "User loged out." });
+    }
   } catch (error) {
     res.status(500).json({ message: "Server error." });
     return;
