@@ -1,3 +1,4 @@
+import Product from "../Components/Product";
 import { useState } from "react";
 
 const Home = () => {
@@ -41,6 +42,13 @@ const Home = () => {
         >
           Sides
         </div>
+      </div>
+
+      <p className="mt-2 mb-2 font-bold text-[#F2DAAC] uppercase">{category}</p>
+
+      <div className="flex flex-col gap-2 md:gap-3">
+        <Product />
+        <Product />
       </div>
     </div>
   );

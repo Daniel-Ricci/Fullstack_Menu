@@ -4,7 +4,7 @@ import Register from "./Pages/Register.tsx";
 import Header from "./Components/Header.tsx";
 import PublicRoute from "./Components/PublicRoute.tsx";
 import Home from "./Pages/Home.tsx";
-import { Orders } from "./Pages/Orders.tsx";
+import Orders from "./Pages/Orders.tsx";
 
 const Layout = () => {
   return (
